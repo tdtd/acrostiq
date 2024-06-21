@@ -838,6 +838,7 @@ document.addEventListener("DOMContentLoaded", function () {
         input.setAttribute("type", "text");
         input.setAttribute("maxlength", "1");
         input.setAttribute("data-hint", hintWord.hint); // You can use this attribute to show the hint on hover or focus, for example
+        input.setAttribute("inputmode", "none");
         underlineSpan.appendChild(input);
         inputs.push(input);
       }
