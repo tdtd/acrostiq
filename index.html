@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acrostiq</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <span class="logo">
+          <img alt="Acrostiq" src="./logo.svg" alt="Acrostiq" />
+        </span>
+      </h1>
+      <menu>
+        <button id="help-button"><i class="fa-solid fa-question"></i></button>
+        <button id="stats-button">
+          <i class="fa-solid fa-chart-simple"></i>
+        </button>
+      </menu>
+    </header>
+    <main>
+      <section id="loading">
+        <h1>Loading Game.</h1>
+      </section>
+      <section class="container hidden"  id="game">
+        <div id="lives" class="lives"></div>
+        <div id="game-information">
+          <h2 id="title">Today's Puzzle</h2>
+          <p id="info"><span id="author">Author</span> — <span id="date">Date</span></p>
+        </div>
+        <div id="puzzle-container"></div>
+        <div id="keyboard"></div>
+
+        <div id="help-popup" class="popup hidden">
+          <div id="helpScreen" class="popup-container">
+            <div class="popup-header">
+              <i id="help-close" class="fa-solid fa-x"></i>
+            </div>
+            <section class="popup-body">
+              <h2>
+                How To Play
+                <span class="logo">
+                  <img alt="Acrostiq" src="./logo.svg" alt="Acrostiq" />
+                </span>
+              </h2>
+              <h3>Use Hints to Build a Word.</h3>
+              <ul>
+                <li>Solve the clues and guess each line.</li>
+                <li>Solve the puzzle using the first letter of each word.</li>
+                <li>You have 3 incorrect guesses to solve the puzzle.</li>
+              </ul>
+              <h4>Scoring</h4>
+              <ul>
+                <li>1 point for each correct first letter.</li>
+                <li>1 point for each correct word.</li>
+                <li>5 points for solving the puzzle.</li>
+              </ul>
+              <h4>Examples</h4>
+              <div class="example-container">
+                <div class="puzzle-example">
+                  <label
+                    >A clue with a correct first letter and correct
+                    guess.</label
+                  >
+                  <div class="example-word">
+                    <span class="box first-letter right">O</span>
+                    <span class="puzzle-box-container right">
+                      <span class="box disable">r</span>
+                      <span class="box disable">a</span>
+                      <span class="box disable">n</span>
+                      <span class="box disable">g</span>
+                      <span class="box disable">e</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="puzzle-example">
+                  <label
+                    >A clue with a correct first letter and incorrect
+                    guess.</label
+                  >
+                  <div class="example-word">
+                    <span class="box first-letter right">K</span>
+                    <span class="puzzle-box-container wrong">
+                      <span class="box">r</span>
+                      <span class="box">a</span>
+                      <span class="box">k</span>
+                      <span class="box">e</span>
+                      <span class="box">n</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="puzzle-example">
+                  <label
+                    >A clue with an incorrect first letter and incorrect
+                    guess.</label
+                  >
+                  <div class="example-word">
+                    <span class="box first-letter">I</span>
+                    <span class="puzzle-box-container wrong">
+                      <span class="box">n</span>
+                      <span class="box">e</span>
+                      <span class="box">p</span>
+                      <span class="box">t</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div id="settings-popup" class="popup hidden">
+          <div id="settingsScreen" class="popup-container">
+            <div class="popup-header">
+              <i id="settings-close" class="fa-solid fa-x"></i>
+            </div>
+            <section class="popup-body">
+              <h2>
+                <span class="logo">
+                  <img alt="Acrostiq" src="./logo.svg" alt="Acrostiq" />
+                </span>
+                Settings
+              </h2>
+              <h3>Game Settings</h3>
+              <ul class="hide-list-style">
+                <li>
+                  Hardmode
+                  <span>
+                    <label class="switch">
+                      <input id="hardmode-switch" type="checkbox" />
+                      <span class="slider"></span> </label
+                  ></span>
+                </li>
+                <li>
+                  Dark Mode
+                  <span>
+                    <label class="switch">
+                      <input id="darkmode-switch" type="checkbox" />
+                      <span class="slider"></span> </label
+                  ></span>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
+
+        <div id="stats-popup" class="popup hidden">
+          <div id="statScreen" class="popup-container">
+            <div class="popup-header">
+              <i id="stats-close" class="fa-solid fa-x"></i>
+            </div>
+            <div class="logo">
+              <img alt="Acrostiq" src="./logo.svg" alt="Acrostiq" />
+            </div>
+            <div id="answer" class="hidden">
+              <h2 class>Today's Answer:<span id="answer-text" ></span></h2>
+              <div id="clue-answers"></div>
+            </div>
+            <div id="point-calc-container" class="hidden">
+              <span class="point-calc">Word: <span id="correct-word-points">0</span></span>+
+              <span class="point-calc">First Letter: <span id="correct-first-letter-points">0</span></span>+
+              <span class="point-calc">Solved: <span id="solved-points">0</span></span>=
+              <span class="point-calc">Total: <span id="total-points">15</span></span>
+            </div>
+            <div class="chart-container" id="chart"></div>
+            <div class="stats">
+              <p>Average Points : <span id="average">0.23</span></p>
+              <p>Total Wins: <span id="total-wins">0</span></p>
+              <p>Current Streak: <span id="current-win-streak">0</span></p>
+              <p>Longest Streak: <span id="longest-win-streak">0</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>Copyright &copy; 2023 All rights reserved.</p>
+    </footer>
+    <script src="./puzzle.js"></script>
+    <script src="./Keyboard/main.js"></script>
+    <script src="main.js"></script>
+    <script
+      src="https://kit.fontawesome.com/005224f398.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

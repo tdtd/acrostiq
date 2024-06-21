@@ -1,0 +1,1 @@
+const puzzleJSON = {"date":1718856000000,"title":"New Beginnings","author":"Will","answerWord":"START","hintWords":[{"word":"Spark","hint":"Handy fireworks, ___lers."},{"word":"Threshold","hint":"Campbell's First Crossing."},{"word":"Awaken","hint":"Get up, As in the morning."},{"word":"Rise","hint":"A reason for leavening."},{"word":"Transformer","hint":"Robot in disguise."}]};
