@@ -714,6 +714,7 @@ input:checked + .slider:before {
   
   .popup {
     align-items: start;
+    overflow: scroll;
   }
 }
 
@@ -749,6 +750,7 @@ input:checked + .slider:before {
 
   .popup {
     align-items: start;
+    overflow: scroll;
   }
 }
 
