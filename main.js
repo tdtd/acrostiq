@@ -564,7 +564,7 @@ document.addEventListener("DOMContentLoaded", function () {
     pointArray[gameScore - 1] += 1;
     stats.metaStats.pointArray = pointArray;
 
-    localStorage.setItem("stats", JSON.stringify(stats));
+    window.localStorage.setItem("stats", JSON.stringify(stats));
     setChartData(chart, pointArray, gameScore - 1);
 
     //Handle Chart
@@ -580,13 +580,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function writeGameStateToLocalStorage(stats) {
-    localStorage.setItem("stats", JSON.stringify(stats));
+    window.localStorage.setItem("stats", JSON.stringify(stats));
   }
 
   function readStatsFromLocalStorage() {
-    if (localStorage.getItem("stats") === null) return null;
+    if (window.localStorage.getItem("stats") === null) return null;
 
-    return JSON.parse(localStorage.getItem("stats"));
+    return JSON.parse(window.localStorage.getItem("stats"));
   }
 
   function loadStats() {
@@ -713,7 +713,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     };
 
-    localStorage.setItem("stats", JSON.stringify(stats));
+    window.localStorage.setItem("stats", JSON.stringify(stats));
     return stats;
   }
 
@@ -829,6 +829,10 @@ document.addEventListener("DOMContentLoaded", function () {
       hintSpan.classList.add("label");
       wordDiv.appendChild(hintSpan);
       wordDiv.appendChild(underlineSpan);
+
+      if (hintWord.word.length > 10) {
+        wordDiv.classList.add("long-word");
+      }
 
       const inputs = [];
 
@@ -948,6 +952,7 @@ document.addEventListener("DOMContentLoaded", function () {
           recentInputs,
           recentWordIndex
         );
+        saveGameStateToLocalStorage();
         moveToNextHintWord(puzzleWords, recentWordIndex);
       }
     }

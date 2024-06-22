@@ -1,6 +1,6 @@
 let a = document.addEventListener("DOMContentLoaded", function () {
   let keyboardRow1 = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
-  let keyboardRow2 = ["a", "s", "d", "g", "h", "j", "k", "l"];
+  let keyboardRow2 = ["a", "s", "d","f", "g", "h", "j", "k", "l"];
   let keyboardRow3 = ['<span><span class="keyboard-enter">Enter</span><i class="fa-solid fa-arrow-turn-down"></i></span>', "z", "x", "c", "v", "b", "n", "m", '<i class="fa-solid fa-delete-left"></i>'];
 
   const keyboard = document.getElementById("keyboard");

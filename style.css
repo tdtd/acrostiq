@@ -701,9 +701,19 @@ input:checked + .slider:before {
     margin-left: 3px;
   }
 
+  .long-word input{
+    width: 30px;
+    height: 30px;
+    font-size: 1.5em;
+  }
+
   .chart-row {
     gap: 5px;
     grid-template-columns: repeat(15, 14px);
+  }
+  
+  .popup {
+    align-items: start;
   }
 }
 
@@ -718,6 +728,12 @@ input:checked + .slider:before {
     font-size: 1.5em;
   }
 
+  .long-word input{
+    width: 30px;
+    height: 30px;
+    font-size: 1.5em;
+  }
+
   .puzzle-word input:first-of-type {
     width: 45px;
     height: 45px;
@@ -729,6 +745,10 @@ input:checked + .slider:before {
       width: calc(100% - 50px);
       margin-left: 50px;
     }
+  }
+
+  .popup {
+    align-items: start;
   }
 }
 
